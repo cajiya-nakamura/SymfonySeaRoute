@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Route index{% endblock %}
+
+{% block body %}
+    <h1>Route index</h1>
+
+    <a href="{{ path('app_route_new') }}">Create new</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>出発</th>
+                <th>到着</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for route in routes %}
+            <tr>
+                <td>{{ route.id }}</td>
+                <td>{{ route.departPort.name }}</td>
+                <td>{{ route.arrivalPort.name }}</td>
+                <td>
+                    <a href="{{ path('app_route_show', {'id': route.id}) }}">show</a>
+                    <a href="{{ path('app_route_edit', {'id': route.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

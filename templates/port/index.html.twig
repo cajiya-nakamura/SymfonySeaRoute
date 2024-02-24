@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Port index{% endblock %}
+
+{% block body %}
+    <h1>Port index</h1>
+
+    <a href="{{ path('app_port_new') }}">Create new</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for port in ports %}
+            <tr>
+                <td>{{ port.id }}</td>
+                <td>{{ port.name }}</td>
+                <td>
+                    <a href="{{ path('app_port_show', {'id': port.id}) }}">show</a>
+                    <a href="{{ path('app_port_edit', {'id': port.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

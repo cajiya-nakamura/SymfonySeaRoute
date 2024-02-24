@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchRouteController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    <form action="{{ path('app_route_top') }}" method="post">
+        <label for="depart_port">出発地:</label>
+        <select id="depart_port" name="depart_port">
+            {% for port in ports %}
+                <option value="{{ port.id }}">{{ port.name }}</option>
+            {% endfor %}
+        </select>
+        <hr>
+        <label for="arrival_port">到着地:</label>
+        <select id="arrival_port" name="arrival_port">
+            {% for port in ports %}
+                <option value="{{ port.id }}">{{ port.name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">検索</button>
+    </form>
+
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code>/Users/cajiya-nakamura/Laboratory/SymfonySeaRoute/src/Controller/SearchRouteController.php</code></li>
+        <li>Your template at <code>/Users/cajiya-nakamura/Laboratory/SymfonySeaRoute/templates/search_route/index.html.twig</code></li>
+    </ul>
+</div>
+{% endblock %}

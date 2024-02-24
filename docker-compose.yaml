@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  php:
+    build: .
+    container_name: php
+    volumes:
+      - ./.config/php.ini:/usr/local/etc/php/php.ini
+      - .:/var/www/html
+      - ./var:/var/www/html/var
+      - ./vendor:/var/www/html/vendor
+    ports:
+      - 8080:80
+
+  mariadb:
+    image: mariadb:11.3.2
+    container_name: mariadb
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    environment:
+      - MARIADB_ROOT_PASSWORD=root
+      - MARIADB_DATABASE=test
+      - MARIADB_USER=test
+      - MARIADB_PASSWORD=test
+    ports:
+      - 3808:3808
+
+  phpmyadmin:
+    image: phpmyadmin:5.2.1
+    container_name: phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mariadb
+      - PMA_USER=test
+      - PMA_PASSWORD=test
+    ports:
+      - 4040:80
+    links:
+      - mariadb
+
+volumes:
+  var:
+  vendor:
+  mariadb_data:

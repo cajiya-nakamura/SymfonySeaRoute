@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RouteCategory{% endblock %}
+
+{% block body %}
+    <h1>RouteCategory</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ route_category.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ route_category.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_route_category_index') }}">back to list</a>
+
+    <a href="{{ path('app_route_category_edit', {'id': route_category.id}) }}">edit</a>
+
+    {{ include('route_category/_delete_form.html.twig') }}
+{% endblock %}

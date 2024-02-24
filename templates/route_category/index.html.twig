@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RouteCategory index{% endblock %}
+
+{% block body %}
+    <h1>RouteCategory index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for route_category in route_categories %}
+            <tr>
+                <td>{{ route_category.id }}</td>
+                <td>{{ route_category.name }}</td>
+                <td>
+                    <a href="{{ path('app_route_category_show', {'id': route_category.id}) }}">show</a>
+                    <a href="{{ path('app_route_category_edit', {'id': route_category.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_route_category_new') }}">Create new</a>
+{% endblock %}

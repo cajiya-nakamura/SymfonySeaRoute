@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New RouteCategory{% endblock %}
+
+{% block body %}
+    <h1>Create new RouteCategory</h1>
+
+    {{ include('route_category/_form.html.twig') }}
+
+    <a href="{{ path('app_route_category_index') }}">back to list</a>
+{% endblock %}
