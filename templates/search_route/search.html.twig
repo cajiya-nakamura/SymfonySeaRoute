@@ -9,12 +9,9 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-    <div>{{ dump(route) }}</div>
-    {{dump(routeBySection)}}
     {% for route in routeBySection %}
         <h2>{{ route.section_name }}</h2>
-        <table>
+        <table class="table">
             <tr>
                 <th>出発</th>
                 <th>到着</th>
@@ -28,10 +25,5 @@
         </table>
     {% endfor %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/Users/cajiya-nakamura/Laboratory/SymfonySeaRoute/src/Controller/SearchRouteController.php</code></li>
-        <li>Your template at <code>/Users/cajiya-nakamura/Laboratory/SymfonySeaRoute/templates/search_route/index.html.twig</code></li>
-    </ul>
 </div>
 {% endblock %}

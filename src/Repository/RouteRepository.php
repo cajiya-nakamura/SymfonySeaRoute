@@ -21,7 +21,15 @@ class RouteRepository extends ServiceEntityRepository
         parent::__construct($registry, Route::class);
     }
 
-//    /**
+    /**
+     * Find all entities in descending order.
+     */
+    public function findAllDesc()
+    {
+        return $this->findBy([], ['id' => 'DESC']);
+    }
+
+    //    /**
 //     * @return Route[] Returns an array of Route objects
 //     */
 //    public function findByExampleField($value): array

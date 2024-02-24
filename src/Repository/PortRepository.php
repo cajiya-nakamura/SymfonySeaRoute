@@ -21,6 +21,14 @@ class PortRepository extends ServiceEntityRepository
         parent::__construct($registry, Port::class);
     }
 
+    /**
+     * Find all entities in descending order.
+     */
+    public function findAllDesc()
+    {
+        return $this->findBy([], ['id' => 'DESC']);
+    }
+
     //    /**
     //     * @return Port[] Returns an array of Port objects
     //     */

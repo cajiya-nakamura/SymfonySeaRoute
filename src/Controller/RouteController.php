@@ -18,7 +18,7 @@ class RouteController extends AbstractController
     public function index(RouteRepository $routeRepository): Response
     {
         return $this->render('route/index.html.twig', [
-            'routes' => $routeRepository->findAll(),
+            'routes' => $routeRepository->findAllDesc(),
         ]);
     }
 

@@ -18,7 +18,7 @@ class PortController extends AbstractController
     public function index(PortRepository $portRepository): Response
     {
         return $this->render('port/index.html.twig', [
-            'ports' => $portRepository->findAll(),
+            'ports' => $portRepository->findAllDesc(),
         ]);
     }
 
