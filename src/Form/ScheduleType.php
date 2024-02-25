@@ -29,10 +29,16 @@ class ScheduleType extends AbstractType
             ->add('start_date', DateType::class, [
                 'data' => new \DateTime('8888-01-01'),
                 'format' => 'yyyy-MM-dd',
+                'attr' => [
+                    'style' => 'pointer-events: none;'
+                ]
             ])
             ->add('end_date', DateType::class, [
                 'data' => new \DateTime('8888-12-31'),
                 'format' => 'yyyy-MM-dd',
+                'attr' => [
+                    'style' => 'pointer-events: none;'
+                ]
             ])
             ->add('start_hour')
             ->add('start_minute')
