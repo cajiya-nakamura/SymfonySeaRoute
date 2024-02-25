@@ -21,8 +21,8 @@
                 <td>{{ price.name }}</td>
                 <td>{{ price.price }}</td>
                 <td>
-                    <a href="{{ path('app_price_show', {'id': price.id}) }}">show</a>
-                    <a href="{{ path('app_price_edit', {'id': price.id}) }}">edit</a>
+                    <a href="{{ path('app_price_show', {'id': price.id}) }}" class="btn btn-outline-secondary mb-2">表示</a>
+                    <a href="{{ path('app_price_edit', {'id': price.id}) }}" class="btn btn-outline-secondary mb-2">編集</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_price_new') }}">Create new</a>
+    <a href="{{ path('app_price_new') }}" class="btn btn-primary mb-2">新規作成</a>
 {% endblock %}

@@ -3,9 +3,9 @@
 {% block title %}New Price{% endblock %}
 
 {% block body %}
-    <h1>Create new Price</h1>
+    <h1>新規作成 Price</h1>
 
     {{ include('price/_form.html.twig') }}
 
-    <a href="{{ path('app_price_index') }}">back to list</a>
+    <a href="{{ path('app_price_index') }}" class="btn btn-outline-secondary mb-2">一覧</a>
 {% endblock %}

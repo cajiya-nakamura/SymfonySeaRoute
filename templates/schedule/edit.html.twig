@@ -5,9 +5,9 @@
 {% block body %}
     <h1>Edit Schedule</h1>
 
-    {{ include('schedule/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('schedule/_form.html.twig', {'button_label': '更新'}) }}
 
-    <a href="{{ path('app_schedule_index') }}" class="btn btn-outline-secondary mb-2">back to list</a>
+    <a href="{{ path('app_schedule_index') }}" class="btn btn-outline-secondary mb-2">一覧</a>
 
     {{ include('schedule/_delete_form.html.twig') }}
 {% endblock %}

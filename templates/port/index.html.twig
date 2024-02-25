@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Port index{% endblock %}
+{% block title %}港{% endblock %}
 
 {% block body %}
-    <h1>Port index</h1>
+    <h1>港 <small>Port</small></h1>
 
-    <a href="{{ path('app_port_new') }}">Create new</a>
+    <a href="{{ path('app_port_new') }}" class="btn btn-primary mb-2">新規作成</a>
 
     <table class="table">
         <thead>
@@ -21,8 +21,8 @@
                 <td>{{ port.id }}</td>
                 <td>{{ port.name }}</td>
                 <td>
-                    <a href="{{ path('app_port_show', {'id': port.id}) }}">show</a>
-                    <a href="{{ path('app_port_edit', {'id': port.id}) }}">edit</a>
+                    <a href="{{ path('app_port_show', {'id': port.id}) }}" class="btn btn-outline-secondary mb-2">表示</a>
+                    <a href="{{ path('app_port_edit', {'id': port.id}) }}" class="btn btn-outline-secondary mb-2">編集</a>
                 </td>
             </tr>
         {% else %}

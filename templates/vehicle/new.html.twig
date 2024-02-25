@@ -3,9 +3,9 @@
 {% block title %}New Vehicle{% endblock %}
 
 {% block body %}
-    <h1>Create new Vehicle</h1>
+    <h1>新規作成 Vehicle</h1>
 
     {{ include('vehicle/_form.html.twig') }}
 
-    <a href="{{ path('app_vehicle_index') }}">back to list</a>
+    <a href="{{ path('app_vehicle_index') }}" class="btn btn-outline-secondary mb-2">一覧</a>
 {% endblock %}

@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Schedule index</h1>
 
-    <a href="{{ path('app_schedule_new') }}">Create new</a>
+    <a href="{{ path('app_schedule_new') }}" class="btn btn-primary mb-2">新規作成</a>
     <table class="table">
         <thead>
             <tr>
@@ -28,8 +28,8 @@
                 <td>{{ schedule.startHour }}:{{ schedule.startMinute }}</td>
                 <td>{{ schedule.endHour }}:{{ schedule.endMinute }}</td>
                 <td>
-                    <a href="{{ path('app_schedule_show', {'id': schedule.id}) }}">show</a>
-                    <a href="{{ path('app_schedule_edit', {'id': schedule.id}) }}">edit</a>
+                    <a href="{{ path('app_schedule_show', {'id': schedule.id}) }}" class="btn btn-outline-secondary mb-2">表示</a>
+                    <a href="{{ path('app_schedule_edit', {'id': schedule.id}) }}" class="btn btn-outline-secondary mb-2">編集</a>
                 </td>
             </tr>
         {% else %}

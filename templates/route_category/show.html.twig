@@ -18,9 +18,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_route_category_index') }}">back to list</a>
+    <a href="{{ path('app_route_category_index') }}" class="btn btn-outline-secondary mb-2">一覧</a>
 
-    <a href="{{ path('app_route_category_edit', {'id': route_category.id}) }}">edit</a>
+    <a href="{{ path('app_route_category_edit', {'id': route_category.id}) }}" class="btn btn-outline-secondary mb-2">編集</a>
 
     {{ include('route_category/_delete_form.html.twig') }}
 {% endblock %}

@@ -19,8 +19,8 @@
                 <td>{{ route_category.id }}</td>
                 <td>{{ route_category.name }}</td>
                 <td>
-                    <a href="{{ path('app_route_category_show', {'id': route_category.id}) }}">show</a>
-                    <a href="{{ path('app_route_category_edit', {'id': route_category.id}) }}">edit</a>
+                    <a href="{{ path('app_route_category_show', {'id': route_category.id}) }}" class="btn btn-outline-secondary mb-2">表示</a>
+                    <a href="{{ path('app_route_category_edit', {'id': route_category.id}) }}" class="btn btn-outline-secondary mb-2">編集</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +31,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_route_category_new') }}">Create new</a>
+    <a href="{{ path('app_route_category_new') }}" class="btn btn-primary mb-2">新規作成</a>
 {% endblock %}
