@@ -7,11 +7,13 @@ use App\Repository\PortRepository;
 use App\Repository\RouteRepository;
 use App\Repository\ScheduleRepository;
 
+// use Taniko\Dijkstra\Graph;
+use App\Service\DijkstraService;
+
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Taniko\Dijkstra\Graph;
 
 
 class SearchRouteController extends AbstractController
@@ -56,7 +58,7 @@ class SearchRouteController extends AbstractController
         // $routeの$depart_portと$arrival_port を取得
 
         // Create a new instance of the Graph class
-        $graph = Graph::create();
+        $graph = DijkstraService::create();
 
         // Add routes to the graph
         foreach ($routes as $route) {
@@ -66,6 +68,8 @@ class SearchRouteController extends AbstractController
         try {
             // Search for the shortest route using Dijkstra's algorithm
             $route = $graph->search($depart_port->getName(), $arrival_port->getName());
+            // $s_routes = $graph->searchMultipleRoutes($depart_port->getName(), $arrival_port->getName());
+            
         } catch (\Exception $e) {
 
             $this->addFlash('danger', 'ルート情報が見つかりませんでした。');
@@ -89,6 +93,11 @@ class SearchRouteController extends AbstractController
                 'arrival_port' => $port2,
             ]);
 
+            if( $thisRoute === null ){
+                $this->addFlash('danger', 'ルート情報に登録されているスケジュールがありません');
+                return $this->redirectToRoute('app_route_top', [], Response::HTTP_SEE_OTHER);    
+            }
+
             $routeBySection[] = [
                 'section_name' => $route[$i] . '〜' . $route[$i + 1],
                 'schedules' => $thisRoute->getSchedules(),
@@ -96,6 +105,7 @@ class SearchRouteController extends AbstractController
         }
         $logger->info('$routeBySection', $routeBySection);
         $logger->info('$routes', $routes);
+        
 
         // Calculate the cost of the route
         // $cost = $graph->cost($route);
